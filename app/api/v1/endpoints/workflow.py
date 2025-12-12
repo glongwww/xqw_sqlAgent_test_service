@@ -40,7 +40,7 @@ async def test_workflow_stream(request: WorkflowTestRequest):
             item = await queue.get()
             if item is None:
                 break
-            yield json.dumps(item) + "\n"
+            yield json.dumps(item, ensure_ascii=False) + "\n"
 
     return StreamingResponse(event_generator(), media_type="application/x-ndjson")
 

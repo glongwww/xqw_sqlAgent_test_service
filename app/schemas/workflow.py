@@ -21,6 +21,7 @@ class WorkflowTestStreamItem(BaseModel):
 class WorkflowTestHistoryItem(BaseModel):
     id: int = Field(..., description="测试日志id")
     title: str = Field(..., description="测试日志标题")
+    test_count: int = Field(..., description="测试次数")
     created_at: datetime = Field(..., description="测试日志开始时间")
 
     class Config:

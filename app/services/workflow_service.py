@@ -14,9 +14,12 @@ async def execute_workflow_mock(params: dict) -> dict:
     dur = random.uniform(0.1, 1.0)
     await asyncio.sleep(dur)
     return {
-        "status": "success", 
-        "echo_params": params, 
-        "generated_value": random.randint(1, 1000)
+        # "status": "success",
+        # "echo_params": params,
+        # "generated_value": random.randint(1, 1000)
+        "sql": "SELECT * FROM TABLE",
+        "think": "思考过程",
+        "data": [{"name": "游戏名称1", "value": 10}, {"name": "游戏名称2", "value": 20}]
     }
 
 async def run_workflow_test_stream(db: AsyncSession, request: WorkflowTestRequest):
